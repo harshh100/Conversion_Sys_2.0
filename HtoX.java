@@ -186,23 +186,14 @@ public class HtoX {
 
             H=H.replaceFirst("^0+(?!$)","");
 
-           // System.out.println("H="+H);
+          // System.out.println("H="+H);
             String HtoO_B=HtoB(H);
-          //  System.out.println("b="+HtoO_B);
+          // System.out.println("b="+HtoO_B);
             BtoX objforHtoO = new BtoX();
             String O = objforHtoO.BtoO(HtoO_B);
-          //  System.out.println("o="+O);
+          // System.out.println("o="+O);
             return O;
 
         }
 
 }
-
-//class maiin{
-//    public static void main(String[] args) {
-//        HtoX obj1=new HtoX();
-//       String te=obj1.HtoD("1234567.45");
-//        System.out.println(te);
-//    }
-//}
-
