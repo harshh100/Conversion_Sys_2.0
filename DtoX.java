@@ -1,4 +1,3 @@
-
 public class DtoX {
 
     String DtoB(String D) {
@@ -159,12 +158,3 @@ return "";
 return "";
     }
 }
-
-//class maiiin{
-//    public static void main(String[] args) {
-//        DtoX obj1=new DtoX();
-//       String te=obj1.DtoH("12222222");
-//        System.out.println(te);
-//
-//    }
-//}
