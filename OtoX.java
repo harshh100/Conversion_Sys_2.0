@@ -27,7 +27,7 @@ public class OtoX {
         //---------------Convertion of Integar part---------------
         for(int qwe=0;qwe<temp_str.length;qwe++){
             DtoX objforOtoB=new DtoX();
-            str_b+=setO(objforOtoB.DtoB(temp_str[qwe]));
+            str_b=setO(objforOtoB.DtoB(temp_str[qwe])+str_b);
         }
 
         //---------------Convertion of decimal part---------------
@@ -173,11 +173,3 @@ public class OtoX {
     }
 
 }
-
-//class maiiiin{
-//    public static void main(String[] args) {
-//        OtoX obj1=new OtoX();
-//        String te=obj1.OtoH("15555.755");
-//        System.out.println(te);
-//    }
-//}
