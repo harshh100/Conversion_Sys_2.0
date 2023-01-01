@@ -4,7 +4,7 @@ public class index {
     public static void main(String[] args) {
 
         Scanner hp = new Scanner(System.in);
-        int Ibase, Obase = 0;
+        int Ibase=0, Obase = 0;
         String Inumber = "";
         String Istring = "";
         int flage_w = 0;
@@ -12,13 +12,8 @@ public class index {
         System.out.print("Original Base : ");
         Ibase = hp.nextInt();
 
-        if (Ibase == 16) {
-            System.out.print("Original Number : ");
-            Istring = hp.next();
-        } else {
             System.out.print("Original Number : ");
             Inumber = hp.next();
-        }
 
         if (Ibase != 2 && Ibase != 8 && Ibase != 10 && Ibase != 16) {
             System.out.println("INVALID!!!,Your Original Base Should Be 2 or 8 or 10 or 16");
@@ -113,6 +108,7 @@ public class index {
 
                     }
                 } else if (Ibase == 16) {
+
                     String[] ttt = new String[2];
                     if (Inumber.contains(".")) {
                         ttt = Inumber.split("[.]");
@@ -120,6 +116,7 @@ public class index {
                         ttt[0] = Inumber;
                         ttt[1] = "0";
                     }
+
                     if (ttt[0].matches(".*[G-Z].*") || ttt[1].matches(".*[G-Z].*")) {
 
                         System.out.println("Wrong Input !!!!,Enter valid Original Number according to Original Base");
@@ -127,8 +124,9 @@ public class index {
                     } else {
                         HtoX obj = new HtoX();
                         if (Obase == 2) {
-                            String Ans = obj.HtoB(Inumber);
-                            System.out.println("Converted Number : " + Ans);
+                            String Ansss = obj.HtoB(Inumber);
+                            System.out.println("Converted Number : " +Ansss);
+
                         } else if (Obase == 8) {
                             String Ans = obj.HtoO(Inumber);
                             System.out.println("Converted Number : " + Ans);
