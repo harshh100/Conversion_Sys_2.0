@@ -92,14 +92,13 @@ public class BtoX {
     String BtoO(String B){
 
         B=B.replaceFirst("^0+(?!$)","");
-        B=setOlen(B);
         String[] part=B.split("[.]");
+        part[0]=setOlen(part[0]);
         String str_o="",o_deC="";
         String O="";
 
         //---------------Convertion of Integar part---------------
         String[] temp_str= part[0].split("(?<=\\G.{" + 3 + "})");
-
         String[] a=new String[temp_str.length];
         for (int i= temp_str.length-1;i>=0;i--){
             a[i]=temp_str[temp_str.length-i-1];
@@ -117,7 +116,7 @@ public class BtoX {
         //---------------Convertion of decimal part---------------
         if(B.contains(".")){
             temp_str= part[1].split("(?<=\\G.{" + 3 + "})");
-
+            part[1]=setOlen(part[1]);
             a=new String[temp_str.length];
             for (int i= temp_str.length-1;i>=0;i--){
                 a[i]=temp_str[temp_str.length-i-1];
@@ -127,7 +126,7 @@ public class BtoX {
             for (int qwe=0;qwe<temp_str.length;qwe++){
                 temp_str[qwe]=setB(temp_str[qwe]);
                 BtoX objforBtoO =new BtoX();
-                o_deC+=objforBtoO.BtoD(temp_str[qwe]);
+                o_deC=objforBtoO.BtoD(temp_str[qwe])+o_deC;
 
             }
             str_o=str_o+"."+o_deC;
@@ -141,12 +140,16 @@ public class BtoX {
 
     String BtoH(String B){
         B=B.replaceFirst("^0+(?!$)","");
-        B=setHlen(B);
+      //  System.out.println("B="+B);
+       // System.out.println("setB="+B);
         String[] part=B.split("[.]");
+        part[0]=setHlen(part[0]);
         String H_deC="";
         String H="";
+      //  System.out.println("part[0]="+part[0]);
         //---------------Convertion of Integar part---------------
         String[] temp_str= part[0].split("(?<=\\G.{" + 4 + "})");
+
         String[] a=new String[temp_str.length];
         for (int i= temp_str.length-1;i>=0;i--){
             a[i]=temp_str[temp_str.length-i-1];
@@ -156,6 +159,7 @@ public class BtoX {
 
         for (int qwe=0;qwe<temp_str.length;qwe++){
             BtoX objforBtoH =new BtoX();
+          //  System.out.println("tep_str="+temp_str[qwe]);
             String temp=objforBtoH.BtoD(temp_str[qwe]);
             if(temp.equals("10")){
                 H= "A" + H;
@@ -175,8 +179,11 @@ public class BtoX {
             }
         }
 
+
         //---------------Convertion of decimal part---------------
         if(B.contains(".")){
+            part[1]=setBh(part[1]);
+          //  System.out.println("part[1]="+part[1]);
             temp_str= part[1].split("(?<=\\G.{" + 4 + "})");
 
             a=new String[temp_str.length];
@@ -216,11 +223,3 @@ public class BtoX {
     }
 
 }
-
-//class maaiin{
-//    public static void main(String[] args) {
-//        BtoX obj1=new BtoX();
-//       String te=obj1.BtoO("00101110");
-//        System.out.println(te);
-//    }
-//}
